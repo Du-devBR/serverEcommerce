@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3333;
 require('dotenv').config();
 
-
+app.use(cors())
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -13,6 +14,10 @@ mongoose.connect(process.env.MONGODB_URI)
 })
 .catch((error) => {
   console.error('Erro ao conectar com o MongoDB:', error);
+});
+
+app.get("/", (request, response) => {
+  return response.json({ Message: "Bem vindo a api de ecommerce!!!" });
 });
 
 
