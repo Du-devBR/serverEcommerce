@@ -4,7 +4,8 @@
   "description": "api ecommerce basico",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
