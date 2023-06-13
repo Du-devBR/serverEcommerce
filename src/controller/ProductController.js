@@ -39,7 +39,7 @@ class ProductController {
   async deleteProduct(req, res) {
     const id = req.params.id;
     try {
-      await ProductSchema.findOneAndRemove(id);
+      await ProductSchema.findOneAndRemove({_id:id});
       return res.status(204).json();
     } catch (error) {
       return res.status(500).json();
